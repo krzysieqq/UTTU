@@ -13,7 +13,7 @@ git config --global alias.st status
 
 ```
 ```bash
-# ---> File: .gitconfig or .git/config <--- 
+# ---> File: .gitconfig or .git/config <---
 [alias]
   a = add
   pu = push -u
@@ -27,9 +27,9 @@ git config --global alias.st status
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
   l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
-  # la = "!git config -l | grep alias | cut -c 7-"
   wip = commit -am "WIP"
   undo = reset HEAD~1 --mixed
+  # la = "!git config -l | grep alias | cut -c 7-"
   #up = !git pull --rebase --prune $@ && git submodule update --init --recursive
   # Rename [branch] to done-[branch] -> done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
 
