@@ -46,3 +46,33 @@ x  kill pane
 <prefix> } (Move the current pane right)
 <prefix> z toggle pane zoom
 ```
+
+# K8S
+```bash
+kubeadm init --pod-network-cidr=192.168.10.0/16 --apiserver-advertise-address=192.168.10.172
+kubectl get nodes
+kubectl get pods --all-namespaces -o wide
+kubectl create deployment apache --image=apache
+kubectl get deployments
+kubectl get deploy,svc,pods,pvc
+kubectl describe deployment apache
+kubectl create service nodeport apache --tcp=80:80
+kubectl get svc # list out current services
+kubectl cluster-info
+kubectl expose deployment ms1 --type=NodePort --name=ms1-service
+kubectl expose deployment nginx --type=NodePort --name=nginx-service
+kubectl exec web -c <container-name> date
+kubectl logs --tail=50 mytestserver # Print most recent 50 lines
+kubectl logs --since=3h mytestserver # Print last 3 hours logs
+KUBE_EDITOR=”vim” kubectl edit pod mytestserver1
+cat mypod.json | kubectl apply -f -
+kubectl config set-context my-context --namespace=mystuff
+kubectl exec -it <pod-name> -- bash
+kubectl cp <pod-name>:/path/to/remote/file /path/to/local/file
+
+```
+
+#Other
+```bash
+ssh-copy-id demo@198.51.100.0 #copy ssh key to server
+```
