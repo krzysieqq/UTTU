@@ -49,6 +49,9 @@ x  kill pane
 
 # K8S
 ```bash
+kubectl config set-context $(kubectl config current-context) --namespace=<insert-namespace-name-here>
+# Validate it
+kubectl config view | grep namespace:
 kubeadm init --pod-network-cidr=192.168.10.0/16 --apiserver-advertise-address=192.168.10.172
 kubectl get nodes
 kubectl get pods --all-namespaces -o wide

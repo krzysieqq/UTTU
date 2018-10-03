@@ -1,15 +1,33 @@
 # My local usefull bash aliases used with
 # git clone git@github.com:krzysieqq/bash-full-of-colors.git
 
+PATH="$HOME/Programs/pycharm/bin:$PATH"
+
 #VirtualEnvWrapper
 export WORKON_HOME=$HOME/Projects/venvs
 export PROJECT_HOME=$HOME/Projects/
+source /usr/local/bin/virtualenvwrapper.sh
+
+export WORKON_HOME=$HOME/Projects/venvs
+export PROJECT_HOME=$HOME/Projects
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 source /usr/local/bin/virtualenvwrapper.sh
 
 # git clone https://github.com/iridakos/goto.git && cd goto && sudo ./install
 # Source goto
 [[ -s "/usr/local/share/goto.sh" ]] && source /usr/local/share/goto.sh
 
-
+alias dps="docker ps"
+alias dit='docker exec -it'
+alias dip='docker inspect --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
+alias upt='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y'
 alias pm='python manage.py'
 alias upt='apt update && apt upgrade -y && apt autoremove -y'
+
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
