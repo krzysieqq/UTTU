@@ -4,9 +4,9 @@
 PATH="$HOME/Programs/pycharm/bin:$PATH"
 
 #VirtualEnvWrapper
-export WORKON_HOME=$HOME/Projects/venvs
-export PROJECT_HOME=$HOME/Projects/
-source /usr/local/bin/virtualenvwrapper.sh
+# export WORKON_HOME=$HOME/Projects/venvs
+# export PROJECT_HOME=$HOME/Projects/
+# source /usr/local/bin/virtualenvwrapper.sh
 
 export WORKON_HOME=$HOME/Projects/venvs
 export PROJECT_HOME=$HOME/Projects
@@ -22,7 +22,13 @@ alias dit='docker exec -it'
 alias dip='docker inspect --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
 alias upt='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y'
 alias pm='python manage.py'
-alias upt='apt update && apt upgrade -y && apt autoremove -y'
+alias upt='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y'
+alias dcup='docker-compose -f docker_compose_local.yml up'
+alias dcshell='docker-compose -f docker_compose_local.yml exec web python manage.py shell'
+alias dcbash='docker-compose -f docker_compose_local.yml exec web bash'
+alias dctest='docker-compose -f docker_compose_local.yml exec web python manage.py test'
+alias dcmm='docker-compose -f docker_compose_local.yml exec web python manage.py makemigrations'
+alias dcmig='docker-compose -f docker_compose_local.yml exec web python manage.py migrate'
 
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
